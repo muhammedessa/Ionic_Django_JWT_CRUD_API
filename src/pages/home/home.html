@@ -1,17 +1,59 @@
 <ion-header>
   <ion-navbar>
     <ion-title>Home</ion-title>
+
+
+    <ion-buttons end>
+        <button ion-button icon-only (click)="inserPage()">
+          <ion-icon name="options"></ion-icon>
+        </button>
+      </ion-buttons>
+
+
+
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <h2>Welcome to Ionic!</h2>
-  <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-  </p>
-  <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p>
+   
+
+
+
+ 
+    <div  *ngFor=" let item of mydata">
+ 
+
+
+        <ion-list >
+          <ion-item-sliding>
+            <ion-item>
+              
+              <h2> {{item.name}} </h2>
+              <p> {{item.email}} </p>
+            </ion-item>
+            <ion-item-options side="left">
+              
+              <button ion-button color="secondary" 
+              (click)="onEdit(item.id,item.name,item.email,item.subject,item.date,item.deiscription)">
+                <ion-icon name="create"></ion-icon>
+                Edit
+              </button>
+            </ion-item-options>
+            <ion-item-options side="right">
+              <button ion-button color="danger"  (click)="onDelete(item.id)">
+                <ion-icon name="trash"></ion-icon>
+                Delete
+              </button>
+            </ion-item-options>
+          </ion-item-sliding>
+        </ion-list>
+      
+      </div>
+
+
+
+
+
+
+
 </ion-content>
